@@ -7,4 +7,6 @@ jobs:
       - name: Context-demo
         run: |
           echo "This Workflow is triggered by ${{github.actor}}"
-          echo "The Repository name is ${{github.repository}}"  
+          echo "The Repository name is ${{github.repository}}" 
+      - name: Print all the github detail
+        run: echo "${{toJson(github)}}
