@@ -10,3 +10,6 @@ jobs:
           echo "The Repository name is ${{github.repository}}" 
       - name: Print all the github detail
         run: echo "${{toJson(github)}}"
+
+      - name: Print Environment Vairable
+        run: echo "$GITHUB_SHA"
