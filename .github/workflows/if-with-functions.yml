@@ -38,7 +38,7 @@ jobs:
 
   failure_noti:
     needs: ["quality_checks", "dev_deploy", "prod_deploy"]
-    runs_on: ubuntu_lastest
+    runs-on: ubuntu_lastest
     steps:
       - name: Notify failure
         run: echo "failure notification sent to the team"\
