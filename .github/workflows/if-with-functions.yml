@@ -29,7 +29,7 @@ jobs:
         run: echo "Deploy code to the production Enviroment"
 
   success_noti:
-    needs: ["quality_checks", "dev_deply", "prod_deploy"]
+    needs: ["quality_checks", "dev_deploy", "prod_deploy"]
     if: always() && !failure()
     runs-on: ubuntu_lastest
     steps:
