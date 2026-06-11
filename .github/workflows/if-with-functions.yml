@@ -9,21 +9,21 @@ on:
 jobs:
   quality_checks:
     if: startsWith(github.ref_name, 'feature') && github.event_name == 'push'
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest 
     steps:
       - name: Perform Quality quality_checks
         run: echo "Performing Quality checks on the Code"
 
   dev_deploy:
     if: github.ref_name == 'developer' && github.event_name=='push'
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest 
     steps:
       - name: Dev Deployment
         run: echo "Deploy code to the Dev Environment"
 
   prod_deploy:
     if: github.ref_name == 'main' && github.event_name == 'push'
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest 
     steps:
       - name: Prod Deployment
         run: echo "Deploy code to the production Enviroment"
@@ -31,7 +31,7 @@ jobs:
   success_noti:
     needs: ["quality_checks", "dev_deploy", "prod_deploy"]
     if: always() && !failure()
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest 
     steps:
       - name: Notify success
         run: echo "Success email sent to the team"
@@ -39,7 +39,7 @@ jobs:
   failure_noti:
     needs: ["quality_checks", "dev_deploy", "prod_deploy"]
     if: failure()
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest 
     steps:
       - name: Notify failure
         run: echo "failure notification sent to the team"\
